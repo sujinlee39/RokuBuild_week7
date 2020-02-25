@@ -2,7 +2,11 @@
     require('connect.php');
 
     function getUser($conn) {
-        $getUser = 'SELECT * FROM users';
+
+        $liveuser = $_POST["username"];
+        //echo $liveuser;
+
+        $getUser = 'SELECT * FROM users WHERE uname="'.$liveuser.'"';
         $runQuery = $conn->query($getUser);
 
         $result = array();
